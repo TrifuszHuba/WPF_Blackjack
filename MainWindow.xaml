@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BlackJack"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="450" Width="800" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <Style TargetType="Image">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Height" Value="100"/>
+            <Setter Property="Width" Value="100"/>
+        </Style>
+        <Style TargetType="StackPanel">
+            <Setter Property="Height" Value="150"/>
+        </Style>
+    </Window.Resources>
 
+    <Grid Background="#333">
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top">
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Bottom">
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
+            <Image Source="pack://application:,,,/img/69.gif"/>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+        </StackPanel>
     </Grid>
 </Window>

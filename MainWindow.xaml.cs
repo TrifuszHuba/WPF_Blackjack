@@ -20,9 +20,26 @@ namespace BlackJack
     /// </summary>
     public partial class MainWindow : Window
     {
+        public Image[,] cards { get; private protected set; } = new Image[2, 9];
         public MainWindow()
         {
             InitializeComponent();
+            for (int playerIdx = 0; playerIdx < 2; playerIdx++)
+            {
+                for (int Idx = 0; Idx < 2; Idx++)
+                {
+                    BitmapImage bitmapImg = new();
+                    bitmapImg.BeginInit();
+                    bitmapImg.UriSource = new Uri("img/69.gif");
+                    bitmapImg.DecodePixelWidth = 700;
+                    bitmapImg.EndInit();
+                    cards[playerIdx, Idx] = new Image
+                    {
+                        Source = bitmapImg
+                    };
+                }
+            }
+                
         }
     }
 }
