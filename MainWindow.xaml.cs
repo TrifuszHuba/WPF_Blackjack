@@ -29,12 +29,33 @@ namespace BlackJack
         {
             get
             {
-                int temp = 0;
+                int sum = 0;
+                int AceCount = 0;
                 for (int i = 0; i < PlayerHumanCards.Children.Count; i++)
                 {
-                    temp += GetCardValue((int)((Image)PlayerHumanCards.Children[i]).Tag);
+                    int temp = GetCardValue((int)((Image)PlayerHumanCards.Children[i]).Tag);
+                    if (temp == 11)
+                    {
+                        AceCount++;
+                    }
+                    else
+                    {
+                        sum += temp;
+                    }
                 }
-                return temp;
+                for (int i = 0; i < AceCount; i++)
+                {
+                    if (sum+11+AceCount-i-1 > 21)
+                    {
+                        sum += AceCount - i;
+                        break;
+                    }
+                    else
+                    {
+                        sum += 11;
+                    }
+                }
+                return sum;
             }
         }
 
@@ -42,12 +63,74 @@ namespace BlackJack
         {
             get
             {
-                int temp = 0;
+                int sum = 0;
+                int AceCount = 0;
                 for (int i = 0; i < PlayerBotCards.Children.Count; i++)
                 {
-                    temp += GetCardValue((int)((Image)PlayerBotCards.Children[i]).Tag);
+                    int temp = GetCardValue((int)((Image)PlayerBotCards.Children[i]).Tag);
+                    if (temp == 11)
+                    {
+                        AceCount++;
+                    }
+                    else
+                    {
+                        sum += temp;
+                    }
                 }
-                return temp;
+                for (int i = 0; i < AceCount; i++)
+                {
+                    if (sum + 11 + AceCount - i - 1 > 21)
+                    {
+                        sum += AceCount - i;
+                        break;
+                    }
+                    else
+                    {
+                        sum += 11;
+                    }
+                }
+                return sum;
+            }
+        }
+
+        public int PublicBotSum
+        {
+            get
+            {
+                int sum = 0;
+                int AceCount = 0;
+                int FirstValue = 0;
+                bool IsAceFirst = false;
+                for (int i = 0; i < PlayerBotCards.Children.Count; i++)
+                {
+                    int temp = GetCardValue((int)((Image)PlayerBotCards.Children[i]).Tag);
+                    if (i == 0)
+                    {
+                        FirstValue = temp;
+                    }
+                    if (temp == 11)
+                    {
+                        if (i == 0)
+                        {
+                            IsAceFirst = true;
+                        }
+                        AceCount++;
+                    }
+                    else
+                    {
+                        sum += temp;
+                    }
+                }
+                if (AceCount > 0 && IsAceFirst)
+                {
+                    if (sum + 11 + AceCount - 1 > 21)
+                    {
+                        return 1;
+                    }
+                    return 11;
+                }
+                    
+                return FirstValue;
             }
         }
         public MainWindow()
@@ -58,7 +141,7 @@ namespace BlackJack
 
         private void StartGame()
         {
-            PlayerBotSum.Visibility = Visibility.Hidden;
+            DisplayResult.Visibility = Visibility.Hidden;
             for (int Idx = 0; Idx < 2; Idx++)
             {
                 BitmapImage bitmapImg = new();
@@ -148,7 +231,9 @@ namespace BlackJack
 
         private void EndGameTasks()
         {
-            PlayerBotSum.Visibility = Visibility.Visible;
+            DisplayResult.Visibility = Visibility.Visible;
+            PlayerBotSum.Content = $"{BotSum}";
+            MayPull = false;
             for (int i = 0; i < PlayerBotCards.Children.Count; i++)
             {
                 BitmapImage bitmapImg = new();
@@ -157,11 +242,12 @@ namespace BlackJack
                 bitmapImg.UriSource = new Uri(System.IO.Path.Combine(Environment.CurrentDirectory, "img", $"{cardTag}.gif"));
                 bitmapImg.DecodePixelWidth = 700;
                 bitmapImg.EndInit();
-                PlayerBotCards.Children[i] = new Image()
+                PlayerBotCards.Children.Insert(i, new Image()
                 {
                     Source = bitmapImg,
                     Tag = cardTag
-                };
+                });
+                PlayerBotCards.Children.RemoveAt(i + 1);
             }
         }
 
@@ -172,22 +258,27 @@ namespace BlackJack
                 Button_EndTurn();
                 MayPull = false;
                 PlayerHumanSum.Content = $"{HumanSum}";
-                PlayerBotSum.Content = $"{BotSum}";
                 EndGameTasks();
                 if (HumanSum > BotSum)
                 {
-                    PlayerHumanSum.Content += ": Nyertél!";
+                    DisplayResult.Content += "Nyertél!";
                     return;
                 }
                 if (HumanSum == BotSum)
                 {
-                    PlayerHumanSum.Content += ": Döntetlen!";
-                    PlayerBotSum.Content += ": Döntetlen!";
+                    DisplayResult.Content += "Vesztettél! (döntetlen)";
                     return;
                 }
-                PlayerBotSum.Content += ": Vesztettél!";
+                DisplayResult.Content += "Vesztettél!";
 
             }
+        }
+
+        private void Button_RestartGame(object sender, RoutedEventArgs e)
+        {
+            PlayerBotCards.Children.Clear();
+            PlayerHumanCards.Children.Clear();
+            StartGame();
         }
 
         private void Update_CardSums()
@@ -196,34 +287,29 @@ namespace BlackJack
 
             if (HumanSum > 21)
             {
-                PlayerHumanSum.Content = $"{HumanSum}: Vesztettél!";
-                MayPull = false;
                 EndGameTasks();
+                DisplayResult.Content = $"Vesztettél!";
                 return;
             }
             if (HumanSum == 21)
             {
-                PlayerHumanSum.Content = $"{HumanSum}: Nyertél!";
-                MayPull = false;
                 EndGameTasks();
+                DisplayResult.Content = $"Nyertél!";
                 return;
             }
-            
 
-            PlayerBotSum.Content = $"{BotSum}";
+            PlayerBotSum.Content = $"{PublicBotSum}";
 
             if (BotSum > 21)
             {
-                PlayerHumanSum.Content = $"{HumanSum}: Nyertél!";
-                MayPull = false;
                 EndGameTasks();
+                DisplayResult.Content = $"Nyertél!";
                 return;
             }
             if (BotSum == 21)
             {
-                PlayerHumanSum.Content = $"{HumanSum}: Vesztettél!";
-                MayPull = false;
                 EndGameTasks();
+                DisplayResult.Content = $"Vesztettél!";
                 return;
             }
             

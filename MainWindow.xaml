@@ -7,7 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" ResizeMode="CanMinimize">
     <Window.Resources>
+        <Style TargetType="WrapPanel">
+            <Setter Property="Margin" Value="0,0,10,0"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Lucida Console"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontFamily" Value="Lucida Console"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
         <Style TargetType="Image">
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Direction="200" Opacity="0.5"/>
+                </Setter.Value>
+            </Setter>
             <Setter Property="Margin" Value="10"/>
             <Setter Property="Height" Value="100"/>
             <Setter Property="Width" Value="100"/>
@@ -17,34 +32,23 @@
             <Setter Property="Height" Value="150"/>
         </Style>
     </Window.Resources>
-
     <Grid Background="#333">
-        <Label x:Name="PlayerHumanSum" Height="50" Width="100" Foreground="AliceBlue" VerticalAlignment="Bottom" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-            0
-        </Label>
-        <Label x:Name="PlayerBotSum" Height="50" Width="100" Foreground="AliceBlue" VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
-            0
-        </Label>
-        <StackPanel x:Name="PlayerBotCards" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top">
-
-        </StackPanel>
-        
-        <StackPanel x:Name="PlayerHumanCards" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Bottom">
-            
-        </StackPanel>
+        <Label x:Name="PlayerHumanSum" Height="50" Width="100" Foreground="AliceBlue" VerticalAlignment="Bottom" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="PlayerBotSum" Height="50" Width="100" Foreground="AliceBlue" VerticalAlignment="Top" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="DisplayResult" Height="50" Foreground="AliceBlue" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40"/>
+        <StackPanel x:Name="PlayerBotCards" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top"/>
+        <StackPanel x:Name="PlayerHumanCards" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Bottom"/>
         <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
             <Image x:Name="PullCardImage" Source="img/69.gif" Margin="0"/>
-            <Button Background="#bb592372" Width="80" Click="Button_PullCard"/>
-
-
+            <Button Background="#0000" Width="80" Click="Button_PullCard" BorderBrush="#0000"/>
 
         </Grid>
         <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Vertical">
-            <!--<Button Click="Button_EndTurn" Height="30" Width="80" Margin="0,0,0,10">
-                End Turn
-            </Button>-->
             <Button Click="Button_EndGame" Height="30" Width="80">
-                End Game
+                Stand
+            </Button>
+            <Button Click="Button_RestartGame" Height="30" Width="80" Margin="0,10,0,0">
+                Restart
             </Button>
         </WrapPanel>
     </Grid>
