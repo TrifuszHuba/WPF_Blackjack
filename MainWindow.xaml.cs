@@ -122,7 +122,7 @@ namespace BlackJack
         {
             if (MayPull)
             {
-                if (BotSum <= 16)
+                while (BotSum <= 16)
                 {
                     BitmapImage bitmapImg = new();
                     bitmapImg.BeginInit();
