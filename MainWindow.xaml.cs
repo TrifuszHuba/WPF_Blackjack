@@ -181,8 +181,8 @@ namespace BlackJack
                 PullCardImage.Tag = -1;
 
             }
-            Update_CardSums();
             MayPull = true;
+            Update_CardSums();
         }
 
         private void Button_PullCard(object sender, RoutedEventArgs e)

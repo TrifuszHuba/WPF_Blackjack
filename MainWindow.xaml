@@ -31,6 +31,29 @@
         <Style TargetType="StackPanel">
             <Setter Property="Height" Value="150"/>
         </Style>
+        <Style x:Key="MyButtonStyle" TargetType="Button">
+            <Setter Property="OverridesDefaultStyle" Value="True"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Name="border" 
+                        BorderThickness="0"
+                        Padding="0,0" 
+                        BorderBrush="#0000"
+                        CornerRadius="0" 
+                        Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="Black" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid Background="#333">
         <Label x:Name="PlayerHumanSum" Height="50" Width="100" Foreground="AliceBlue" VerticalAlignment="Bottom" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
@@ -40,7 +63,7 @@
         <StackPanel x:Name="PlayerHumanCards" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Bottom"/>
         <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
             <Image x:Name="PullCardImage" Source="img/69.gif" Margin="0"/>
-            <Button Background="#0000" Width="80" Click="Button_PullCard" BorderBrush="#0000"/>
+            <Button Style="{StaticResource MyButtonStyle}" Background="#0000" Width="80" Click="Button_PullCard" BorderBrush="#0000"/>
 
         </Grid>
         <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Vertical">
