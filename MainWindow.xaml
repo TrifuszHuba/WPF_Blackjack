@@ -18,14 +18,30 @@
     </Window.Resources>
 
     <Grid Background="#333">
-        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top">
+        <StackPanel x:Name="PlayerBotCards" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Top">
+            <Label x:Name="PlayerBotSum" Height="50" Width="100" Foreground="AliceBlue" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                0
+            </Label>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Bottom">
+        <StackPanel x:Name="PlayerHumanCards" HorizontalAlignment="Center" Orientation="Horizontal" VerticalAlignment="Bottom">
+            <Label x:Name="PlayerHumanSum" Height="50" Width="100" Foreground="AliceBlue" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                0
+            </Label>
         </StackPanel>
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
-            <Image Source="pack://application:,,,/img/69.gif"/>
-        </StackPanel>
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-        </StackPanel>
+        <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Image x:Name="PullCardImage" Source="img/69.gif" Margin="0"/>
+            <Button Background="#bb592372" Width="80" Click="Button_PullCard"/>
+
+
+
+        </Grid>
+        <WrapPanel HorizontalAlignment="Right" VerticalAlignment="Center" Orientation="Vertical">
+            <!--<Button Click="Button_EndTurn" Height="30" Width="80" Margin="0,0,0,10">
+                End Turn
+            </Button>-->
+            <Button Click="Button_EndGame" Height="30" Width="80">
+                End Game
+            </Button>
+        </WrapPanel>
     </Grid>
 </Window>

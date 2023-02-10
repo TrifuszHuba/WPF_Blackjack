@@ -8,221 +8,165 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="img\1.gif" />
-    <None Remove="img\10.gif" />
-    <None Remove="img\11.gif" />
-    <None Remove="img\12.gif" />
-    <None Remove="img\13.gif" />
-    <None Remove="img\14.gif" />
-    <None Remove="img\15.gif" />
-    <None Remove="img\16.gif" />
-    <None Remove="img\17.gif" />
-    <None Remove="img\18.gif" />
-    <None Remove="img\19.gif" />
-    <None Remove="img\2.gif" />
-    <None Remove="img\20.gif" />
-    <None Remove="img\21.gif" />
-    <None Remove="img\22.gif" />
-    <None Remove="img\23.gif" />
-    <None Remove="img\24.gif" />
-    <None Remove="img\25.gif" />
-    <None Remove="img\26.gif" />
-    <None Remove="img\27.gif" />
-    <None Remove="img\28.gif" />
-    <None Remove="img\29.gif" />
-    <None Remove="img\3.gif" />
-    <None Remove="img\30.gif" />
-    <None Remove="img\31.gif" />
-    <None Remove="img\32.gif" />
-    <None Remove="img\33.gif" />
-    <None Remove="img\34.gif" />
-    <None Remove="img\35.gif" />
-    <None Remove="img\36.gif" />
-    <None Remove="img\37.gif" />
-    <None Remove="img\38.gif" />
-    <None Remove="img\39.gif" />
-    <None Remove="img\4.gif" />
-    <None Remove="img\40.gif" />
-    <None Remove="img\41.gif" />
-    <None Remove="img\42.gif" />
-    <None Remove="img\43.gif" />
-    <None Remove="img\44.gif" />
-    <None Remove="img\45.gif" />
-    <None Remove="img\46.gif" />
-    <None Remove="img\47.gif" />
-    <None Remove="img\48.gif" />
-    <None Remove="img\49.gif" />
-    <None Remove="img\5.gif" />
-    <None Remove="img\50.gif" />
-    <None Remove="img\51.gif" />
-    <None Remove="img\52.gif" />
-    <None Remove="img\6.gif" />
-    <None Remove="img\69.gif" />
-    <None Remove="img\7.gif" />
-    <None Remove="img\8.gif" />
-    <None Remove="img\9.gif" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="img\1.gif">
+    <None Update="img\1.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\10.gif">
+    </None>
+    <None Update="img\10.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\11.gif">
+    </None>
+    <None Update="img\11.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\12.gif">
+    </None>
+    <None Update="img\12.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\13.gif">
+    </None>
+    <None Update="img\13.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\14.gif">
+    </None>
+    <None Update="img\14.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\15.gif">
+    </None>
+    <None Update="img\15.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\16.gif">
+    </None>
+    <None Update="img\16.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\17.gif">
+    </None>
+    <None Update="img\17.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\18.gif">
+    </None>
+    <None Update="img\18.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\19.gif">
+    </None>
+    <None Update="img\19.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\2.gif">
+    </None>
+    <None Update="img\2.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\20.gif">
+    </None>
+    <None Update="img\20.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\21.gif">
+    </None>
+    <None Update="img\21.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\22.gif">
+    </None>
+    <None Update="img\22.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\23.gif">
+    </None>
+    <None Update="img\23.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\24.gif">
+    </None>
+    <None Update="img\24.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\25.gif">
+    </None>
+    <None Update="img\25.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\26.gif">
+    </None>
+    <None Update="img\26.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\27.gif">
+    </None>
+    <None Update="img\27.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\28.gif">
+    </None>
+    <None Update="img\28.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\29.gif">
+    </None>
+    <None Update="img\29.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\3.gif">
+    </None>
+    <None Update="img\3.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\30.gif">
+    </None>
+    <None Update="img\30.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\31.gif">
+    </None>
+    <None Update="img\31.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\32.gif">
+    </None>
+    <None Update="img\32.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\33.gif">
+    </None>
+    <None Update="img\33.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\34.gif">
+    </None>
+    <None Update="img\34.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\35.gif">
+    </None>
+    <None Update="img\35.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\36.gif">
+    </None>
+    <None Update="img\36.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\37.gif">
+    </None>
+    <None Update="img\37.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\38.gif">
+    </None>
+    <None Update="img\38.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\39.gif">
+    </None>
+    <None Update="img\39.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\4.gif">
+    </None>
+    <None Update="img\4.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\40.gif">
+    </None>
+    <None Update="img\40.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\41.gif">
+    </None>
+    <None Update="img\41.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\42.gif">
+    </None>
+    <None Update="img\42.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\43.gif">
+    </None>
+    <None Update="img\43.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\44.gif">
+    </None>
+    <None Update="img\44.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\45.gif">
+    </None>
+    <None Update="img\45.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\46.gif">
+    </None>
+    <None Update="img\46.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\47.gif">
+    </None>
+    <None Update="img\47.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\48.gif">
+    </None>
+    <None Update="img\48.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\49.gif">
+    </None>
+    <None Update="img\49.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\5.gif">
+    </None>
+    <None Update="img\5.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\50.gif">
+    </None>
+    <None Update="img\50.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\51.gif">
+    </None>
+    <None Update="img\51.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\52.gif">
+    </None>
+    <None Update="img\52.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\6.gif">
+    </None>
+    <None Update="img\6.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\69.gif">
+    </None>
+    <None Update="img\69.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\7.gif">
+    </None>
+    <None Update="img\7.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\8.gif">
+    </None>
+    <None Update="img\8.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="img\9.gif">
+    </None>
+    <None Update="img\9.gif">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    </None>
   </ItemGroup>
 
 </Project>
