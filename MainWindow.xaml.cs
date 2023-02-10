@@ -30,9 +30,9 @@ namespace BlackJack
             get
             {
                 int temp = 0;
-                for (int i = 1; i < PlayerHumanCards.Children.Count; i++)
+                for (int i = 0; i < PlayerHumanCards.Children.Count; i++)
                 {
-                    temp += (int)((Image)PlayerHumanCards.Children[i]).Tag;
+                    temp += GetCardValue((int)((Image)PlayerHumanCards.Children[i]).Tag);
                 }
                 return temp;
             }
@@ -43,9 +43,9 @@ namespace BlackJack
             get
             {
                 int temp = 0;
-                for (int i = 1; i < PlayerBotCards.Children.Count; i++)
+                for (int i = 0; i < PlayerBotCards.Children.Count; i++)
                 {
-                    temp += (int)((Image)PlayerBotCards.Children[i]).Tag;
+                    temp += GetCardValue((int)((Image)PlayerBotCards.Children[i]).Tag);
                 }
                 return temp;
             }
@@ -53,18 +53,24 @@ namespace BlackJack
         public MainWindow()
         {
             InitializeComponent();
+            StartGame();
+        }
+
+        private void StartGame()
+        {
+            PlayerBotSum.Visibility = Visibility.Hidden;
             for (int Idx = 0; Idx < 2; Idx++)
             {
                 BitmapImage bitmapImg = new();
                 bitmapImg.BeginInit();
                 var randint = generator.Next(1, 52);
-                bitmapImg.UriSource = new Uri(System.IO.Path.Combine(Environment.CurrentDirectory, "img", $"69.gif"));
+                bitmapImg.UriSource = new Uri(System.IO.Path.Combine(Environment.CurrentDirectory, "img", Idx==1?"69.gif":$"{randint}.gif"));
                 bitmapImg.DecodePixelWidth = 700;
                 bitmapImg.EndInit();
                 PlayerBotCards.Children.Add(new Image
                 {
                     Source = bitmapImg,
-                    Tag = GetCardValue(randint)
+                    Tag = randint
                 });
             }
             for (int Idx = 0; Idx < 2; Idx++)
@@ -79,7 +85,7 @@ namespace BlackJack
                 PlayerHumanCards.Children.Add(new Image
                 {
                     Source = bitmapImg,
-                    Tag = GetCardValue(randint)
+                    Tag = randint
                 });
             }
             {
@@ -90,7 +96,7 @@ namespace BlackJack
                 bitmapImg.EndInit();
                 PullCardImage.Source = bitmapImg;
                 PullCardImage.Tag = -1;
-                
+
             }
             Update_CardSums();
             MayPull = true;
@@ -110,19 +116,19 @@ namespace BlackJack
                     PlayerHumanCards.Children.Add(new Image
                     {
                         Source = bitmapImg,
-                        Tag = GetCardValue(randint)
+                        Tag = randint
                     });
                 }
                 Update_CardSums();
-                Button_EndTurn(null, new());
+                Button_EndTurn();
             }
         }
 
-        private void Button_EndTurn(object sender, RoutedEventArgs e)
+        private void Button_EndTurn()
         {
             if (MayPull)
             {
-                while (BotSum <= 16)
+                while (BotSum < 17)
                 {
                     BitmapImage bitmapImg = new();
                     bitmapImg.BeginInit();
@@ -133,10 +139,29 @@ namespace BlackJack
                     PlayerBotCards.Children.Add(new Image
                     {
                         Source = bitmapImg,
-                        Tag = GetCardValue(randint)
+                        Tag = randint
                     });
                 }
                 Update_CardSums();
+            }
+        }
+
+        private void EndGameTasks()
+        {
+            PlayerBotSum.Visibility = Visibility.Visible;
+            for (int i = 0; i < PlayerBotCards.Children.Count; i++)
+            {
+                BitmapImage bitmapImg = new();
+                bitmapImg.BeginInit();
+                int cardTag = (int)((Image)PlayerBotCards.Children[i]).Tag;
+                bitmapImg.UriSource = new Uri(System.IO.Path.Combine(Environment.CurrentDirectory, "img", $"{cardTag}.gif"));
+                bitmapImg.DecodePixelWidth = 700;
+                bitmapImg.EndInit();
+                PlayerBotCards.Children[i] = new Image()
+                {
+                    Source = bitmapImg,
+                    Tag = cardTag
+                };
             }
         }
 
@@ -144,10 +169,11 @@ namespace BlackJack
         {
             if (MayPull)
             {
+                Button_EndTurn();
                 MayPull = false;
                 PlayerHumanSum.Content = $"{HumanSum}";
                 PlayerBotSum.Content = $"{BotSum}";
-
+                EndGameTasks();
                 if (HumanSum > BotSum)
                 {
                     PlayerHumanSum.Content += ": Nyertél!";
@@ -160,6 +186,7 @@ namespace BlackJack
                     return;
                 }
                 PlayerBotSum.Content += ": Vesztettél!";
+
             }
         }
 
@@ -171,12 +198,14 @@ namespace BlackJack
             {
                 PlayerHumanSum.Content = $"{HumanSum}: Vesztettél!";
                 MayPull = false;
+                EndGameTasks();
                 return;
             }
             if (HumanSum == 21)
             {
                 PlayerHumanSum.Content = $"{HumanSum}: Nyertél!";
                 MayPull = false;
+                EndGameTasks();
                 return;
             }
             
@@ -187,12 +216,14 @@ namespace BlackJack
             {
                 PlayerHumanSum.Content = $"{HumanSum}: Nyertél!";
                 MayPull = false;
+                EndGameTasks();
                 return;
             }
             if (BotSum == 21)
             {
                 PlayerHumanSum.Content = $"{HumanSum}: Vesztettél!";
                 MayPull = false;
+                EndGameTasks();
                 return;
             }
             
